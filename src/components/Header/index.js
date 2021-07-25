@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { useState } from 'react';
-import "./components.css";
-import logo from "../images/gotaiwan_logo.svg";
+import "./index.css";
+import logo from "../../images/gotaiwan_logo.svg";
 
 const Header = () => {
     return <div>
