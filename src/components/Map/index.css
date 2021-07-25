@@ -1,0 +1,22 @@
+.mapStyle{
+    /* baseprofile:tiny; */
+    fill:#7c7c7c;
+    height:1295px;
+    stroke:#ffffff;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-width:2px;
+    width:750px;
+    /* width: 100%; */
+}
+path {
+    stroke: white;
+    fill: #DFE2B3;
+    transition: 0.7s;
+    cursor: pointer;
+}
+    
+path:hover {
+    fill: #C5D265;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+}

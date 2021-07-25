@@ -4,6 +4,7 @@ import "firebase/firestore";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import Mymap from "./containers/MymapPage"; //不用寫./pages/Home/index.js，他會自己判斷
 
 const firebaseConfig = {
     apiKey: "AIzaSyCerOcfOq-W_5aSGsZyDeh111uvz0kamc0",
@@ -28,9 +29,15 @@ db.collection("todo").add({
 .catch((error) => {
     console.error("Error adding document: ", error);
 });
-
+// Initialize Firebase
 
 
 // let app=React.createElement("div",{},"Hello React");
-let app=<div>Hello React Yooo</div>;
-ReactDOM.render(app, document.getElementById("root"));
+// ReactDOM.render(app, document.getElementById("root"));
+
+ReactDOM.render(
+    <React.StrictMode>
+        <Mymap />
+    </React.StrictMode>,
+    document.getElementById("root")
+);

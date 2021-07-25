@@ -1,0 +1,117 @@
+/* --------------------reset css-------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+/* --------------------reset css-------------------- */
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;
+    color: #444;
+    font-weight: 400;
+    scroll-padding-top: 75px; /* height of sticky header */
+    scroll-behavior: smooth;
+}
+.header{
+    width: 100%;
+    height: 64px;
+    position: sticky;
+    top:0;
+    z-index:1;
+    /* background-color: #E9EEF7;
+    border-bottom: #e8e8e8 solid 1px; */
+}
+.containerHeader{
+    width: 1200px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    position: relative;
+}
+.containerHeader > img{
+    width: 150px;
+    fill: #444;
+}
+/* .logo{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 64px;
+    color: #444444;
+} */
+.header{
+    width: 100%;
+    height: 64px;
+    position: sticky;
+    top:0;
+    z-index:1;
+}
+.containerHeader{
+    width: 1200px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    position: relative;
+}
+.menu > li{
+    display: flex;
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.menu a{
+    text-decoration: none;
+    color: #444;
+    line-height: 64px;
+    cursor: pointer;
+}
+.menu a:hover{
+    text-decoration: underline;
+    color:#85D1D1;
+    cursor: pointer;
+}

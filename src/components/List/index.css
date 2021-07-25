@@ -1,0 +1,37 @@
+.listBlock{
+    width: 260px;
+    height: 676px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+h2{
+    font-size: 20px;
+    font-weight: 700;
+    color: #444;
+    margin-left: 10px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom:#eeeeee solid 1px;
+}
+.listBlock h3{
+    font-weight: 700;
+    font-size: 18px;
+    color: #85D1D1;
+    margin-left: 10px;
+}
+.listBlock ul{
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+.listBlock li{
+    font-weight: 400;
+    margin-top: 10px; 
+}
+.listBlock a{
+    text-decoration: none;
+}
+.listBlock a:hover{
+    text-decoration: underline;
+    color: #85D1D1;
+}
