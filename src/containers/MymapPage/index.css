@@ -10,3 +10,9 @@
     /* position: relative; */
     background-image: url(../../images/cloud-01.svg);
 }
+.btnGroup{
+    position: absolute;
+    top: 30px;
+    left: 280px;
+    display: flex;
+}

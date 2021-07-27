@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { useState } from 'react';
+import React, { Component, useState } from 'react';
 import "./index.css";
 import taiwanMap from "../../images/taiwanMap.svg";
 

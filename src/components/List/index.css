@@ -14,24 +14,24 @@ h2{
     padding-bottom: 20px;
     border-bottom:#eeeeee solid 1px;
 }
-.listBlock h3{
+.listTitle{
     font-weight: 700;
     font-size: 18px;
     color: #85D1D1;
     margin-left: 10px;
 }
-.listBlock ul{
+.listItem ul{
     margin-left: 20px;
     margin-bottom: 40px;
 }
-.listBlock li{
+.listItem li{
     font-weight: 400;
     margin-top: 10px; 
 }
-.listBlock a{
+.listItem a{
     text-decoration: none;
 }
-.listBlock a:hover{
+.listItem a:hover{
     text-decoration: underline;
     color: #85D1D1;
 }

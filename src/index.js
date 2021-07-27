@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import Mymap from "./containers/MymapPage"; //不用寫./pages/Home/index.js，他會自己判斷
+import HomePage from "./containers/HomePage";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCerOcfOq-W_5aSGsZyDeh111uvz0kamc0",
@@ -37,7 +38,8 @@ db.collection("todo").add({
 
 ReactDOM.render(
     <React.StrictMode>
-        <Mymap />
+        {/* <Mymap /> */}
+        <HomePage />
     </React.StrictMode>,
     document.getElementById("root")
 );

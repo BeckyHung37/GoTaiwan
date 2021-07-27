@@ -50,7 +50,7 @@ blockquote, q {
     box-sizing: border-box;
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 16px;
-    color: #444;
+    color: #666;
     font-weight: 400;
     scroll-padding-top: 75px; /* height of sticky header */
     scroll-behavior: smooth;
@@ -74,7 +74,7 @@ blockquote, q {
 }
 .containerHeader > img{
     width: 150px;
-    fill: #444;
+    /* fill: #666; */
 }
 /* .logo{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -106,7 +106,7 @@ blockquote, q {
 }
 .menu a{
     text-decoration: none;
-    color: #444;
+    color: #666;
     line-height: 64px;
     cursor: pointer;
 }
