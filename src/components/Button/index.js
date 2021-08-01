@@ -1,9 +1,9 @@
 import React, { Component, useState } from 'react';
 import "./index.css";
 
-const Button = ({icon, title}) => {
+const Button = ({icon, title, onClick: handleClick}) => {
     return (
-        <button className="buttonStyle">
+        <button className="buttonStyle" onClick={() => handleClick()}>
             <div className="imgBox">
                 <img src={icon}/>
             </div>

@@ -1,11 +1,11 @@
 import React, { Component, useState } from 'react';
-// import Header from "../../components/Header"; 
-import SignIn from '../../components/SignIn';
-import SignUp from '../../components/SignUp';
-import HeroImage from '../../images/hero_image.jpg'
+import Header from "../../components/Header"; 
 import "./index.css";
+// import SignIn from '../../components/SignIn'
+// import SignUp from '../../components/SignUp'
+import { Route } from 'react-router-dom';
 
-const HomePage = () => {
+const AppFrame = ({ component: Component, ...rest }) => {
     // const [openSignUp,setOpenSignUp] = useState(false)
     // const handleOpenSignUp = () => {
     //     setOpenSignUp(true)
@@ -22,17 +22,23 @@ const HomePage = () => {
     //     setOpenSignIn(false)
     // }
 
+
     return (
         <div>
-            {/* <Header openSignUp={openSignUp} onSignup={handleOpenSignUp}/>
-            <SignIn open={open} onClose={handelClose} onSignin={handleOpen}/>
+            <Header />
+            <Route {...rest} render={routeProps => (<Component {...routeProps}></Component>)}></Route>
+            {/* <SignIn 
+                openSignIn={openSignIn} 
+                onCloseSignIn={handelCloseSignIn} onOpenSignUp={handleOpenSignUp}
+            />
             <SignUp 
                 openSignUp={openSignUp} openSignIn={openSignIn} 
                 onCloseSignUp={handelCloseSignUp} onOpenSignIn={handleOpenSignIn}
             /> */}
-            <img src={HeroImage} className="HeroImageBox"/>
+            {/* {children} */}
         </div>
     )
 }
 
-export default HomePage;
+
+export default AppFrame;

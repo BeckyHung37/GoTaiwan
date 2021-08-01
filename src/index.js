@@ -1,35 +1,25 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
+// import firebase from "firebase/app";
+// import "firebase/auth";
+// import "firebase/firestore";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Link, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Link, Route} from "react-router-dom"; //Router為指定名稱
+import AppFrame from "./containers/AppFrame";
 import Mymap from "./containers/MymapPage"; //不用寫./pages/Home/index.js，他會自己判斷
 import HomePage from "./containers/HomePage";
+import db from './utils/db'
 
-const firebaseConfig = {
-    apiKey: "AIzaSyCerOcfOq-W_5aSGsZyDeh111uvz0kamc0",
-    authDomain: "gotaiwan-travelmap.firebaseapp.com",
-    projectId: "gotaiwan-travelmap",
-    storageBucket: "gotaiwan-travelmap.appspot.com",
-    messagingSenderId: "609280565263",
-    appId: "1:609280565263:web:522dad66ede45dd1a3037a",
-    measurementId: "G-BQ08VEL7Q1"
-};
-  
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-db.collection("todo").add({
-    text: "Ada",
-    time: Date.now()
-})
-.then((ref) => {
-    console.log("Document ID", ref.id);
-})
-.catch((error) => {
-    console.error("Error adding document: ", error);
-});
+
+// db.collection("todo").add({
+//     text: "Ada",
+//     time: Date.now()
+// })
+// .then((ref) => {
+//     console.log("Document ID", ref.id);
+// })
+// .catch((error) => {
+//     console.error("Error adding document: ", error);
+// });
 // Initialize Firebase
 
 
@@ -40,8 +30,19 @@ db.collection("todo").add({
 
 ReactDOM.render(
     <React.StrictMode>
-        <Mymap />
-        {/* <HomePage /> */}
+        <Router>
+            <Switch>
+            <AppFrame path='/Mymap' component={Mymap}/>
+            <AppFrame path='/' component={HomePage}/>
+
+                {/* <Route path="/Mymap">
+                    <Mymap />
+                </Route>
+                <Route path="/">
+                    <HomePage />
+                </Route> */}
+            </Switch>
+        </Router>
     </React.StrictMode>,
     document.getElementById("root")
 );
