@@ -5,9 +5,9 @@ const Button = ({icon, title}) => {
     return (
         <button className="buttonStyle">
             <div className="imgBox">
-                <img src={props.icon}/>
+                <img src={icon}/>
             </div>
-        {props.title}
+        {title}
         </button>
     )
 

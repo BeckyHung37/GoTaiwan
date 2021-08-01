@@ -3,7 +3,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Link, BrowserRouter } from "react-router-dom";
 import Mymap from "./containers/MymapPage"; //不用寫./pages/Home/index.js，他會自己判斷
 import HomePage from "./containers/HomePage";
 
@@ -36,10 +36,12 @@ db.collection("todo").add({
 // let app=React.createElement("div",{},"Hello React");
 // ReactDOM.render(app, document.getElementById("root"));
 
+
+
 ReactDOM.render(
     <React.StrictMode>
-        {/* <Mymap /> */}
-        <HomePage />
+        <Mymap />
+        {/* <HomePage /> */}
     </React.StrictMode>,
     document.getElementById("root")
 );

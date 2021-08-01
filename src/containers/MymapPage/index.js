@@ -6,6 +6,8 @@ import Button from '../../components/Button';
 import ShareIcon from '../../images/share.svg'
 import AddIcon from '../../images/plus.svg'
 import SignIn from '../../components/SignIn'
+import Pin from '../../components/Pin'
+import AddExperience from '../../components/AddExperience';
 import "./index.css";
 
 const Mymap = () => {
@@ -14,10 +16,12 @@ const Mymap = () => {
         <div className="content">
             <List/>
             <div className="btnGroup">
-                {/* <Button icon={<ShareIcon />} title='分享' onClick={onClick}/>
-                <Button icon={<AddIcon />} title='新增' onClick={onClick}/> */}
+                <Button icon={ShareIcon} title='分享' />
+                <Button icon={AddIcon} title='新增' />
             </div>
             <Map/>
+            <Pin/>
+            {/* <AddExperience/> */}
         </div>
     </div>
 }
