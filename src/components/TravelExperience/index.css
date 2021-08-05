@@ -11,12 +11,30 @@
     z-index: 2;
     /* 為了讓input框置中(margin: 0 auto;) */
     /* text-align: center; */
+    overflow: scroll;
 }
-.dialogTop{
+.imageSection{
     width: 100%;
-    height: 10px;
-    background: #85D1D1;
-    border-radius:6px 6px 0 0;
+    height: 500px;
+    background: #CCCCCC;
+    border-radius: 6px 6px 0 0;
+}
+.images{
+    width: 100%;
+    height: auto;
+    /* padding-top: 30px;
+    padding-bottom: 20px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.imageBox{
+    width: 100px;
+    height: 50px;
+    background: #CCCCCC;
+    margin-left: 24px;
 }
 .boxTitle{
     padding-top: 24px;
@@ -46,7 +64,20 @@
     flex-wrap: wrap;
     margin: 0 auto;
 }
+.subtitle{
+    margin-right: 40px;
+}
+.postContent{
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
 .inputBox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding-top: 20px;
     margin-left: 24px;
     margin-right: 24px;
