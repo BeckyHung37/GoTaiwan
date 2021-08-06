@@ -75,6 +75,7 @@
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .diaryInput{
     width: 100%;
@@ -83,6 +84,7 @@
     border: 1px solid #CCCCCC;
     border-radius: 5px;
     cursor: text;
+    padding-top: 16px;
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 10px;
@@ -96,7 +98,18 @@
 .diaryInput::placeholder{
     color: #CCCCCC;
 }
+input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
 .btn_upload{
+    display: inline-block;
     width: 200px;
     height: 40px;
     color: #666;
@@ -110,6 +123,12 @@
     cursor:pointer;
     margin-bottom: 15px;
     margin-left: 24px;
+}
+.btn_upload:hover{
+    background:#85D1D1;
+}
+.btn_upload:active{
+    background:#8CCACD;
 }
 .btn_submit{
     width: 100px;
@@ -126,6 +145,12 @@
     margin-bottom: 15px;
     margin-top: 30px;
 }
+.btn_submit:hover{
+    background:#BDE4E5;
+}
+.btn_submit:active{
+    background:#8CCACD;
+}
 .saveBox{
     display: flex;
     justify-content: flex-end;
@@ -140,4 +165,9 @@
     color: #666;
     cursor: pointer;
     margin-bottom: 20px;
+}
+.upload_preview{
+    width: 310px;
+    height: auto;
+    max-height: 235px;
 }

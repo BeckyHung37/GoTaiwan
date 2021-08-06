@@ -1,7 +1,7 @@
 // import firebase from "firebase/app";
 import firebase from "firebase";
 
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyCerOcfOq-W_5aSGsZyDeh111uvz0kamc0",
     authDomain: "gotaiwan-travelmap.firebaseapp.com",
     projectId: "gotaiwan-travelmap",
@@ -12,7 +12,7 @@ const firebaseConfig = {
 };
   
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+firebase.initializeApp(firebaseConfig)
+const db = firebase.firestore()
 
-export default db;
+export default db

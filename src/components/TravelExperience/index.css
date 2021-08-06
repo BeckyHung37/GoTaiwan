@@ -74,7 +74,7 @@
     padding-left: 24px;
     padding-right: 24px;
 }
-.inputBox{
+.subtitleBox{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

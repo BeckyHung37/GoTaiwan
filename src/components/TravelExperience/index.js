@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import close from '../../images/icon_close.png';
 import "./index.css";
 import Mask from '../Mask'
@@ -10,18 +10,10 @@ const TravelExperience = (props) =>{
             <div className="imageSection">image</div>
             <div className="images">
                 <div className="imageBox">1</div>
-                <div className="imageBox">1</div>
-                <div className="imageBox">1</div>
-                <div className="imageBox">1</div>
-                <div className="imageBox">1</div>
-                <div className="imageBox">1</div>
-                <div className="imageBox">1</div>
-                <div className="imageBox">1</div>
-
             </div>
             <div className="boxTitle">台北最經典101一日遊</div>
             <img src={close} className="icn_close" onClick={props.onCloseTravelExperience}/>  
-            <div className="inputBox">
+            <div className="subtitleBox">
                 <div>旅遊日期：</div>
                 <div className="subtitle">2021-08-01</div>
                 <div>地點：</div>

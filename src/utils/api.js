@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import firebase from 'firebase'
 
-import db from './db'
+import db,  { firebaseConfig } from './db'
 
 const localStorage = global.window.localStorage
 
@@ -37,6 +37,7 @@ export const signup = (onCloseSignUp) => {
       console.log(error)
     })
     localStorage.setItem('token', idToken) //token是key，idToken是value
+    localStorage.setItem('email', email)
     onCloseSignUp()
   })
   .catch((e) => {
@@ -57,11 +58,13 @@ export const signin = (onCloseSignIn, handlePush) => {
   const email = document.getElementById("signInEmail").value;
   const password = document.getElementById("signInPwd").value;
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((res) => {
-        console.log(res)
-        localStorage.setItem('token', true) //token是key，idToken是value
-        // console.log(localStorage.getItem('token'))
-        //location.reload()
+      .then((data) => {
+        console.log(data)
+        return data.user.getIdToken()
+      })
+      .then((idToken) => {
+        localStorage.setItem('token', idToken) //token是key，idToken是value
+        localStorage.setItem('email', email)
         onCloseSignIn()
         handlePush()
       })
@@ -76,9 +79,122 @@ export const signin = (onCloseSignIn, handlePush) => {
 
 //------------------------------------  用來驗證是否user已經重複  --------------------------------
 export const isUserTaken = (email) => {
-  console.log(email)
-  //
   db.doc(`/users/${email}`).get().then((doc) => {
     return doc.exists
   })
+}
+
+//------------------------------------  新增旅遊記事  --------------------------------
+export const addExperience = (file, close) => {
+  const title = document.getElementById('experienceTitle').value
+  const date = document.getElementById('experienceDate').value
+  const city = document.getElementById('experienceCity').value
+  const content = document.getElementById('experienceContent').value
+  const email = localStorage.getItem('email')
+
+  const output = {
+    title,
+    email,
+    city,
+    content,
+    date
+  }
+
+  db
+    .collection('experiences') // collection document id assign by firebase auto id
+    .add(output)
+    .then((doc) => {
+      // const ref = firebase.storage().ref(doc.id)
+      // ref.putString(file, 'data_url')
+      //   .then((snapshot) => {
+      //     console.log(snapshot.ref())
+      //     // return true
+      //   })
+      //   .catch((error) => {
+      //     return error
+      //   })
+      uploadImage(doc.id, file)
+      const imgUrl = `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${doc.id}`
+      db.doc(`/experiences/${doc.id}`).update({
+        imgUrl
+      })
+      close()
+      location.reload()
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+}
+
+//------------------------------------  上傳圖片  --------------------------------
+export const uploadImage = (id, file) => {
+  const ref = firebase.storage().ref(id)
+  ref.putString(file, 'data_url')
+    .then((snapshot) => {
+      return true
+    })
+    .catch((error) => {
+      console.log(error)
+      return false
+    })
+}
+
+//------------------------------------  獲取已上傳的旅遊記事資料  --------------------------------
+
+export const getExperiences = (set) => {
+  const email = localStorage.getItem('email')
+  const response = []
+  db
+    .collection('experiences')
+    .where('email', '==', email)
+    .orderBy('date', 'desc')
+    .get()
+    .then((data) => {
+      data.docs.map((doc) => {
+        const temp = doc.data()
+        temp.id = doc.id
+        response.push(temp)
+      })
+      set(response)
+    })
+    .catch((error) => {
+      console.error(error)
+      // return response.status(500).json({ error: error.code })
+    })
+}
+
+//------------------------------------  分享旅遊記事  --------------------------------
+export const getShareExperiences = (id, set) => {
+  const response = []
+
+  db
+    .collection('users')
+    .where('userId', '==', id)
+    .get()
+    .then((data) => {
+      let user
+      data.docs.map((doc) => {
+        const temp = doc.data()
+        user = temp
+      })
+      return user.email
+    }).then((email) => {
+      db
+        .collection('experiences')
+        .where('email', '==', email)
+        .orderBy('date', 'desc')
+        .get()
+        .then((data) => {
+          data.docs.map((doc) => {
+            const temp = doc.data()
+            temp.id = doc.id
+            response.push(temp)
+          })
+          set(response)
+        })
+        .catch((error) => {
+          console.error(error)
+          // return response.status(500).json({ error: error.code })
+        })
+    })
 }

@@ -1,41 +1,30 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import Header from "../../components/Header"; 
 import "./index.css";
-// import SignIn from '../../components/SignIn'
-// import SignUp from '../../components/SignUp'
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
+
+const localStorage = global.window.localStorage
+const token = localStorage.getItem('token')
 
 const AppFrame = ({ component: Component, ...rest }) => {
-    // const [openSignUp,setOpenSignUp] = useState(false)
-    // const handleOpenSignUp = () => {
-    //     setOpenSignUp(true)
-    // }
-    // const handelCloseSignUp = () => {
-    //     setOpenSignUp(false)
-    // }
-
-    // const [openSignIn,setOpenSignIn] = useState(false)
-    // const handleOpenSignIn = () => {
-    //     setOpenSignIn(true)
-    // }
-    // const handelCloseSignIn = () => {
-    //     setOpenSignIn(false)
-    // }
-
-
+    // const renderComponent = (routeProps) => {
+    //     let routeCmp
+    //     if (token) {
+    //       routeCmp = <Component {...routeProps} />
+    //     } else {
+    //       if (rest.path === '/' || rest.path === '/Sharemap/:id') {
+    //         routeCmp = <Component {...routeProps} />
+    //       } else {
+    //         routeCmp = <Redirect to='/' />
+    //       }
+    //     }
+    //     return routeCmp
+    //   }
     return (
         <div>
             <Header />
             <Route {...rest} render={routeProps => (<Component {...routeProps}></Component>)}></Route>
-            {/* <SignIn 
-                openSignIn={openSignIn} 
-                onCloseSignIn={handelCloseSignIn} onOpenSignUp={handleOpenSignUp}
-            />
-            <SignUp 
-                openSignUp={openSignUp} openSignIn={openSignIn} 
-                onCloseSignUp={handelCloseSignUp} onOpenSignIn={handleOpenSignIn}
-            /> */}
-            {/* {children} */}
+            {/* <Route {...rest} render={routeProps => renderComponent(routeProps)} ></Route> */}
         </div>
     )
 }

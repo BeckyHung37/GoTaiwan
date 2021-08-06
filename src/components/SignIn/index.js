@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
 import { useHistory } from "react-router-dom"
-
 import close from '../../images/icon_close.png';
 import "./index.css";
 import Mask from '../Mask'

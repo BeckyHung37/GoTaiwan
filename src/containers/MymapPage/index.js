@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect} from 'react';
 // import Header from "../../components/Header"; 
 import Map from "../../components/Map"; 
 import List from "../../components/List";
@@ -9,26 +9,45 @@ import Pin from '../../components/Pin'
 import AddExperience from '../../components/AddExperience';
 import "./index.css";
 
+import { getExperiences } from '../../utils/api'
+
 const Mymap = () => {
     const [openAddExperience,setOpenAddExperience] = useState(false)
-    const handleOpenAddExperience = () => {
+    const [experiences, setExperiences] = useState([])
+    const [selectedCities, setSelectedCities] = useState([])
+
+    useEffect(() => {
+        getExperiences(setExperiences)
+      }, [])
+    
+      useEffect(() => {
+        getExperiences(setExperiences)
+      }, [])
+    
+      useEffect(() => {
+        if (experiences.length > 0) {
+          const titles = experiences.map((experience) => experience.city)
+          setSelectedCities([...new Set(titles)])
+        }
+      }, [experiences])
+
+      const handleOpenAddExperience = () => {
         setOpenAddExperience(true)
     }
     const handleCloseAddExperience = () => {
         setOpenAddExperience(false)
     }
-    console.log(openAddExperience)
+
 
     return (
-        <div className="bodyStyle">
-        {/* <Header/> */}
+    <div className="bodyStyle">
         <div className="content">
-            <List/>
+            <List cities={selectedCities} experiences={experiences} />
             <div className="btnGroup">
                 <Button icon={ShareIcon} title='分享' />
                 <Button icon={AddIcon} title='新增' onClick={() => handleOpenAddExperience()}/>
             </div>
-            <Map/>
+            <Map cities={selectedCities} />
             <Pin/>
             <AddExperience
                 open={openAddExperience}

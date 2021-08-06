@@ -7,6 +7,7 @@
     margin-left: 10px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .buttonStyle:hover{
     width: 80px;
@@ -15,6 +16,9 @@
     background:#85D1D1;
     border-radius: 4px;
     margin-left: 10px;   
+}
+.buttonStyle:active{
+    background:#8CCACD;
 }
 .imgBox{
     margin-left: 5px;
