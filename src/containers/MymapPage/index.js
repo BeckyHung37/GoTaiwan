@@ -5,7 +5,6 @@ import List from "../../components/List";
 import Button from '../../components/Button';
 import ShareIcon from '../../images/share.svg'
 import AddIcon from '../../images/plus.svg'
-import Pin from '../../components/Pin'
 import AddExperience from '../../components/AddExperience';
 import "./index.css";
 
@@ -48,7 +47,6 @@ const Mymap = () => {
                 <Button icon={AddIcon} title='新增' onClick={() => handleOpenAddExperience()}/>
             </div>
             <Map cities={selectedCities} />
-            <Pin/>
             <AddExperience
                 open={openAddExperience}
                 onCloseAddExperience={handleCloseAddExperience}

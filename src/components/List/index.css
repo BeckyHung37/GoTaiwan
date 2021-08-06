@@ -31,6 +31,8 @@ h2{
 .listItem a{
     text-decoration: none;
     cursor: pointer;
+    padding-right: 16px;
+    line-height: 24px;
 }
 .listItem a:hover{
     text-decoration: underline;

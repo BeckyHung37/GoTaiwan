@@ -101,20 +101,11 @@ export const addExperience = (file, close) => {
   }
 
   db
-    .collection('experiences') // collection document id assign by firebase auto id
+    .collection('experiences')
     .add(output)
     .then((doc) => {
-      // const ref = firebase.storage().ref(doc.id)
-      // ref.putString(file, 'data_url')
-      //   .then((snapshot) => {
-      //     console.log(snapshot.ref())
-      //     // return true
-      //   })
-      //   .catch((error) => {
-      //     return error
-      //   })
       uploadImage(doc.id, file)
-      const imgUrl = `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${doc.id}`
+      const imgUrl = `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${doc.id}?alt=media`
       db.doc(`/experiences/${doc.id}`).update({
         imgUrl
       })
@@ -125,6 +116,7 @@ export const addExperience = (file, close) => {
       console.error(error)
     })
 }
+
 
 //------------------------------------  上傳圖片  --------------------------------
 export const uploadImage = (id, file) => {
