@@ -20,9 +20,13 @@
 .buttonStyle:active{
     background:#8CCACD;
 }
-.imgBox{
+.iconImgBox{
     margin-left: 5px;
     margin-right: 8px;
+    display: flex;
+    align-items: center;
+}
+.iconImg{
     width: 18px;
     height: 18px;
 }

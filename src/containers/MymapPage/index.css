@@ -15,4 +15,5 @@
     top: 30px;
     left: 280px;
     display: flex;
+    z-index:1;
 }

@@ -4,8 +4,8 @@ import "./index.css";
 const Button = ({icon, title, onClick: handleClick}) => {
     return (
         <button className="buttonStyle" onClick={() => handleClick()}>
-            <div className="imgBox">
-                <img src={icon}/>
+            <div className="iconImgBox">
+                <img src={icon} className="iconImg"/>
             </div>
         {title}
         </button>

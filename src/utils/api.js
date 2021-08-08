@@ -84,7 +84,8 @@ export const isUserTaken = (email) => {
   })
 }
 
-//------------------------------------  新增旅遊記事  --------------------------------
+
+// ------------------------------------  新增旅遊記事  --------------------------------
 export const addExperience = (file, close) => {
   const title = document.getElementById('experienceTitle').value
   const date = document.getElementById('experienceDate').value
@@ -104,30 +105,46 @@ export const addExperience = (file, close) => {
     .collection('experiences')
     .add(output)
     .then((doc) => {
-      uploadImage(doc.id, file)
-      const imgUrl = `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${doc.id}?alt=media`
-      db.doc(`/experiences/${doc.id}`).update({
-        imgUrl
-      })
-      close()
-      location.reload()
+      // ------------------------------------  上傳圖片  --------------------------------
+      const ref = firebase.storage().ref(doc.id)
+      const task = ref.putString(file, 'data_url')
+      task.on('state_changed',
+        (snapshot) => {
+          // Observe state change events such as progress, pause, and resume
+          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          console.log('Upload is ' + progress + '% done')
+          switch (snapshot.state) {
+            case firebase.storage.TaskState.PAUSED: // or 'paused'
+              console.log('Upload is paused')
+              break
+            case firebase.storage.TaskState.RUNNING: // or 'running'
+              console.log('Upload is running')
+              break
+          }
+        },
+        (error) => {
+          console.log(error)
+          db.doc(`/experiences/${doc.id}`).delete()
+          alert('upload failed')
+          // Handle unsuccessful uploads
+        },
+        () => {
+          // Handle successful uploads on complete
+          // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+          task.snapshot.ref.getDownloadURL().then((downloadURL) => {
+            console.log('File available at', downloadURL)
+            db.doc(`/experiences/${doc.id}`).update({
+              imgUrl: downloadURL
+            })
+            close()
+            location.reload()
+          })
+        }
+      )
     })
     .catch((error) => {
       console.error(error)
-    })
-}
-
-
-//------------------------------------  上傳圖片  --------------------------------
-export const uploadImage = (id, file) => {
-  const ref = firebase.storage().ref(id)
-  ref.putString(file, 'data_url')
-    .then((snapshot) => {
-      return true
-    })
-    .catch((error) => {
-      console.log(error)
-      return false
     })
 }
 
@@ -188,5 +205,56 @@ export const getShareExperiences = (id, set) => {
           console.error(error)
           // return response.status(500).json({ error: error.code })
         })
+    })
+}
+
+//------------------------------------  編輯旅遊記事  --------------------------------
+export const editExperience = (id, file) => {
+  const document = db.doc(`/experiences/${id}`)
+  document
+    .get()
+    .then((doc) => {
+      if (!doc.exists) {
+        alert('Experience not found')
+      } else {
+        const title = document.getElementById('experienceTitle').value
+        const date = document.getElementById('experienceDate').value
+        const city = document.getElementById('experienceCity').value
+        const content = document.getElementById('experienceContent').value
+        const email = localStorage.getItem('email')
+
+        const output = {
+          title,
+          email,
+          city,
+          content,
+          date
+        }
+        document
+          .update(output)
+          .then((doc) => {
+            const storageRef = firebase.storage().ref()
+            const ref = storageRef.child(`${id}`)
+            ref.delete().then(() => {
+              // upload image
+            }).catch((error) => {
+              console.log(error)
+            })
+          })
+      }
+    })
+}
+
+//------------------------------------  刪除旅遊記事  --------------------------------
+export const deleteExperience = (id) => {
+  const document = db.doc(`/experiences/${id}`)
+  document
+    .get()
+    .then((doc) => {
+      if (!doc.exists) {
+        alert('Experience not found')
+      } else {
+        document.delete()
+      }
     })
 }

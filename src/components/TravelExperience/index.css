@@ -194,3 +194,13 @@
     cursor: pointer;
     margin-bottom: 20px;
 }
+.btnGroup_experience{
+    display: flex;
+    padding-top: 16px;
+    padding-right: 24px;
+}
+
+.title_btn{
+    display: flex;
+    justify-content: space-between;
+}
