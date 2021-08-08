@@ -7,6 +7,7 @@ import ShareIcon from '../../images/share.svg'
 import AddIcon from '../../images/plus.svg'
 import AddExperience, { cities } from '../../components/AddExperience';
 import TravelExperience from '../../components/TravelExperience'
+import CityHover from '../../components/CityHover';
 import "./index.css";
 
 import { getExperiences } from '../../utils/api'
@@ -69,6 +70,7 @@ const Mymap = () => {
                 <Button icon={AddIcon} title='新增' onClick={() => handleOpenAddExperience()}/>
             </div>
             <Map cities={selectedCities} />
+            <CityHover/>
             <AddExperience
                 open={openAddExperience}
                 onCloseAddExperience={handleCloseAddExperience}

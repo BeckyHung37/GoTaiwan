@@ -1,0 +1,29 @@
+.cityHoverBox{
+ width: 200px;
+ height: auto;
+ background: rgba(255, 255, 255, 0.7);
+ border-radius: 4px;
+}
+
+.cityName{
+    font-weight: 700;
+    font-size: 18px;
+    color: #85D1D1;
+    margin-left: 10px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.cityName li{
+    cursor: pointer;
+    margin-top: 8px;
+    padding-right: 16px;
+    line-height: 24px;
+    color: #666;
+    font-weight: 400;
+    font-size: 16px;
+}
+.cityName a:hover{
+    text-decoration: underline;
+    color: #85D1D1;
+}
