@@ -5,8 +5,10 @@ import Edit from '../../images/edit.svg';
 import "./index.css";
 import Mask from '../Mask'
 import Button from '../../components/Button';
+import { deleteExperience } from '../../utils/api'
 
 const TravelExperience = (props) =>{
+
     return props.open &&(
     <div>
         <div className="AddExperienceBox">
@@ -19,8 +21,9 @@ const TravelExperience = (props) =>{
             <div className="title_btn">
                 <div className="boxTitle">{props.data.title}</div>
                 <div className="btnGroup_experience">
-                    <Button  icon={Edit} title='編輯' />
-                    <Button  icon={Delete} title='刪除'/>
+                    <Button  icon={Edit} title='編輯' onClick={() => {props.onCloseTravelExperience(), props.onOpenEditExperience()}}/>
+                    <Button  icon={Delete} title='刪除' onClick={() => 
+                deleteExperience(props.data.id)}></Button>
                 </div>
             </div>
             <img src={close} className="icn_close" onClick={props.onCloseTravelExperience}/>  
@@ -35,7 +38,7 @@ const TravelExperience = (props) =>{
             </div>
 
         </div>
-        <Mask/>
+        <Mask onClick={props.onCloseTravelExperience}/>
     </div>
     )
 }

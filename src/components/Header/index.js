@@ -41,9 +41,9 @@ const Header = () => {
     return (
         <div className="header">
             <div className="containerHeader">
-                <NavLink to='/'><img className="img" src={logo} /></NavLink>
+                <NavLink className="logo" to='/'><img className="img" src={logo} /></NavLink>
                 <ul className="menu">
-                    <li><a>使用介紹</a></li>
+                    <li><a>使用方法</a></li>
                     <li>
                         <a
                             onClick={() => {

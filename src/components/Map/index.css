@@ -14,7 +14,7 @@ path {
     stroke: white;
     fill: #DFE2B3;
     transition: 0.7s;
-    cursor: pointer;
+    cursor: default;
 }
     
 path:hover {
@@ -38,42 +38,175 @@ path:hover {
     /* margin: auto; */
     z-index: 1;
 }
-
-#TWN1156 {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
-  
-#TWN1156 .tooltiptext {
-visibility: hidden;
-width: 120px;
-background-color: #555;
-color: #fff;
-text-align: center;
-border-radius: 6px;
-padding: 5px 0;
-position: absolute;
-z-index: 1;
-bottom: 125%;
-left: 50%;
-margin-left: -60px;
-opacity: 0;
-transition: opacity 0.3s;
-}
-  
-#TWN1156 .tooltiptext::after {
-content: "";
-position: absolute;
-top: 100%;
-left: 50%;
-margin-left: -5px;
-border-width: 5px;
-border-style: solid;
-border-color: #555 transparent transparent transparent;
+.kinmen_map{
+    transform: translate(320px,0px);
 }
 
-#TWN1156:hover .tooltiptext {
-visibility: visible;
-opacity: 1;
+
+/* ----------- 縣市名稱tooltip ----------- */
+.kh_tooltip{
+    transform: translate(420px, 1030px);
+}
+.pt_tooltip{
+    transform: translate(550px, 1200px);
+}
+.tn_tooltip{
+    transform: translate(400px, 930px);
+}
+.cyi_tooltip{
+    transform: translate(500px, 850px);
+}
+.cyo_tooltip{
+    transform: translate(400px, 850px);
+}
+.yul_tooltip{
+    transform: translate(420px, 750px);
+}
+
+.ch_tooltip{
+    transform: translate(480px, 650px);
+}
+
+.tc_tooltip{
+    transform: translate(520px, 570px);
+}
+
+.ml_tooltip{
+    transform: translate(560px, 480px);
+}
+
+.hci_tooltip{
+    transform: translate(610px, 420px);
+}
+
+.hco_tooltip{
+    transform: translate(620px, 380px);
+}
+
+.ty_tooltip{
+    transform: translate(670px, 340px);
+}
+
+.ntp_tooltip{
+    transform: translate(750px, 300px);
+}
+
+.tp_tooltip{
+    transform: translate(800px, 270px);
+}
+
+.kl_tooltip{
+    transform: translate(950px, 270px);
+}
+
+
+.yl_tooltip{
+    transform: translate(980px, 500px);
+}
+
+.tt_tooltip{
+    transform: translate(820px, 1000px);
+}
+
+.hl_tooltip{
+    transform: translate(900px, 750px);
+}
+
+.nt_tooltip{
+    transform: translate(690px, 720px);
+}
+
+.ph_tooltip{
+    transform: translate(250px, 750px);
+}
+
+.km_tooltip{
+    transform: translate(250px, 500px);
+}
+
+
+
+/* ------------ 縣市旗子 ----------- */
+.Keelung_city{
+    transform: translate(910px, 315px);
+}
+
+.Taipei_city{
+    transform: translate(870px, 330px);
+}
+
+.New_taipei_city{
+    transform: translate(860px, 400px);
+}
+
+.Taoyuan_country{
+    transform: translate(780px, 360px);
+}
+
+.Hsinchu_city{
+    transform: translate(710px, 410px);
+}
+
+.Hsinchu_country{
+    transform: translate(760px, 450px);
+}
+
+.Miaoli_country{
+    transform: translate(680px, 500px);
+}
+
+.Taichung_city{
+    transform: translate(650px, 580px);
+}
+
+.Changhua_country{
+    transform: translate(580px, 660px);
+}
+
+.Nantou_country{
+    transform: translate(710px, 700px);
+}
+
+.Yunlin_country{
+    transform: translate(540px, 720px);
+}
+
+.Chiayi_city{
+    transform: translate(580px, 785px);
+}
+
+.Chiayi_country{
+    transform: translate(640px, 810px);
+}
+
+.Tainan_city{
+    transform: translate(540px, 900px);
+}
+
+.Kaohsiung_city{
+    transform: translate(645px, 920px);
+}
+
+.Pingtung_country{
+    transform: translate(620px, 1080px);
+}
+
+.Yilan_country{
+    transform: translate(890px, 500px);
+}
+
+.Hualien_country{
+    transform: translate(830px, 700px);
+}
+
+.Taitung_country{
+    transform: translate(740px, 970px);
+}
+
+.Penghu_country{
+    transform: translate(360px, 760px);
+}
+
+.Kinmen_country{
+    transform: translate(350px, 510px);
 }

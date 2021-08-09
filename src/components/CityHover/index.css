@@ -1,5 +1,5 @@
 .cityHoverBox{
- width: 200px;
+ width:auto;
  height: auto;
  background: rgba(255, 255, 255, 0.7);
  border-radius: 4px;
@@ -8,7 +8,8 @@
 .cityName{
     font-weight: 700;
     font-size: 18px;
-    color: #85D1D1;
+    /* color: #85D1D1; */
+    color: #666;
     margin-left: 10px;
     padding-top: 16px;
     padding-bottom: 16px;

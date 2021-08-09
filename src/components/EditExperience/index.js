@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import close from '../../images/icon_close.png';
 import "./index.css";
 import Mask from '../Mask'
-import { addExperience } from '../../utils/api'
+import { editExperience } from '../../utils/api'
 
 export const cities = [
     { order: 14, id: 'TWN1156', name: '高雄市' },
@@ -28,7 +28,7 @@ export const cities = [
     { order: 20, id: 'TWN3415', name: '金門縣' }
   ]
 
-const AddExperience = (props) =>{
+const EditExperience = (props) =>{
     const [file, setFile] = useState(null)
     const [sortedCities, setSortedCities] = useState([])
 
@@ -54,17 +54,17 @@ const AddExperience = (props) =>{
     return props.open &&(
     <div>
         <div className="AddExperienceBox">
-            <div className="boxTitle">新增遊記</div>
+            <div className="boxTitle">編輯遊記</div>
             
             <img src={close} className="icn_close" 
             onClick={() => {
-                props.onCloseAddExperience()
+                props.onCloseEditExperience()
                 setFile(null)
                 }
                 }/>  
                 <div className="inputBox">
                     <div className="inputTitle">文章標題</div>
-                    <input type="text" placeholder="輸入文章標題" className="titleInput" id='experienceTitle' autocomplete="off" autocomplete="off"/>
+                    <input value={props.data.title} type="text" placeholder="輸入文章標題" className="titleInput" id='experienceTitle'/>
                 </div>
                 <div className="inputsBox"> 
                     <div className="inputBox">
@@ -103,4 +103,4 @@ const AddExperience = (props) =>{
     )
 }
 
-export default AddExperience;
+export default EditExperience;

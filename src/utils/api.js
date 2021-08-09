@@ -254,7 +254,12 @@ export const deleteExperience = (id) => {
       if (!doc.exists) {
         alert('Experience not found')
       } else {
-        document.delete()
+        return document.delete()
       }
     })
+    .then(function(result){
+      console.log(result)
+      location.reload()
+      
+  })
 }
